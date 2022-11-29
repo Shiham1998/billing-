@@ -1,0 +1,113 @@
+<!-----------------navbar Start-------------------------------------->
+<nav class="navbar">
+  <i class="las la-arrow-circle-left arrow" routerLink="/layout"> <a class="navbar-brand brand">Company</a></i>
+</nav>
+<!-----------------navbar End-------------------------------------->
+<div class="container">
+  <!--------------Card start--------------------------------------->
+  <div *ngFor="let lists of companydata">
+    <div class="row justify-content-center" style="margin-top:10px;">
+      <div class="col-sm-10" > 
+        <div class="card" style="max-width: 100%;">
+          <div class="card-header" id="header">
+            <h5 class="card-title"> <span id="title">{{lists.businessname}}</span><i class="las la-trash-alt trash" href="#ConfirmModal"
+                data-toggle="modal"  (click)="Passidfromdeletemodal(
+                  lists.id)" ></i> <i class="las la-pen pen"
+                 routerLink="/addeditcompany/{{lists.id}}" ></i></h5>
+          </div>
+        
+           <div class="row g-0">
+            <div class="col-sm-4" id="imgdiv">
+       <img  class="preview img-rounded card bg-white"  alt="Your profile" src="{{lists.companylogo}}"/>
+            </div>
+              <div class="col-sm-8"  id="contentdiv">
+                <div class="row">
+                  <div class="col-md-6">
+                  <p>Bussiness Name : <label id="businessname" class="capitalize">{{lists.businessname}}</label></p>
+                </div>
+                <div class="col-md-6">
+                  <p>GSTIN : <label id="gstin" class="capitalize">{{lists.gstin}}</label></p>
+                </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p >Address : <label id="addres">{{lists.address}}</label></p> 
+                  </div>
+                  <div class="col-md-6">
+                    <p>City :  <label id="city">{{lists.city}}</label> </p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p >State : <label id="state">{{lists.state}}</label></p>
+                  </div>
+                  <div class="col-md-6">
+                    <p> Pincode: <label id="pin">{{lists. pincode}}</label> </p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p >Country : <label id="country">{{lists.country}}</label></p>
+                  </div>
+                  <div class="col-md-6">
+                    <p> Email: <label id="mail">{{lists.email}}</label></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-8">
+                    <p>Mobile Number : <label id="phnumber">{{lists.phone}}</label></p>
+                  </div>
+                </div>
+              </div>
+          </div> 
+      </div>
+  <div>
+  </div>
+</div>
+
+    </div>
+  </div>
+  <!--------------Card End--------------------------------------->
+
+  <!-------------delete popup -------------------------------->
+  <div id="ConfirmModal" class="modal"*ngFor="let lists of companydata">
+    <div class="modal-dialog modal-dialog-centered" >
+      <div class="modal-content">
+        <div class="modal-header flex-column" data-target=".bd-example-modal-sm">
+          <h3 class="modal-title" style="display: flex;"><i class="las la-exclamation-triangle" id="dangericon"></i> Are you sure? </h3>
+        </div>
+        <div class="modal-body">
+          <p>Do you really want to delete <strong id="productname">{{getCompanyid}}</strong> record? </p>
+          <p>This process cannot be undone.</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><b>Cancel</b></button>
+          <button type="btn" class="btn btn-outline-danger"
+            data-toggle="modal" data-target="#SuccessModalDelete" data-dismiss="modal"
+            style="background-color: #A11F21;color: aliceblue;"  (click)="deletecompanylists(getCompanyid)"><b>Delete</b></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div #SuccessModalDelete id="SuccessModalDelete" class="modal fade">
+    <div class="modal-dialog modal-dialog-centered" >
+      <div class="modal-content">
+        <div class="modal-body" >
+          <div style="text-align:center;"><i class="fa fa-info-circle fa-5x center" id="productname" aria-hidden="true"></i></div>
+          <p id="smsg" style="text-align:center;">ClientInfoirmation Details Deleted successfully</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><b>Close</b></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!---------------delete popup--------------->
+
+  <!---Plus icon start-->
+  <a href="#" class="float" routerLink="/addeditcompany">
+    <i class="la la-plus plus"></i>
+  </a>
+  <!---Plus icon End-->
+</div>

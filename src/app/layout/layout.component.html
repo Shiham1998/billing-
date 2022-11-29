@@ -1,0 +1,147 @@
+<div *ngIf="adminMode; else usermode">
+  <!------------------Sidenav Start------------------------------------>
+  <mat-sidenav-container fullscreen>
+    <mat-sidenav mode="side" #sidenav closed position="start" style="background-color: white;">
+      <mat-nav-list>
+        <aside id="sidebar" class="sidebar">
+          <ul class="sidebar-nav" id="sidebar-nav">
+
+            <!-------- Profile Menu Start------->
+            <a mat-list-item class="profile">
+              <i class="las la-user-tie"></i> <label (click)="triggerClick($event)">Profile</label></a>
+            <hr style="color: black;">
+            <!-------- Prpfile Menu End------->
+
+            <!-------- Billing Menu Start------->
+            <a mat-list-item class="billing">
+              <i class="las la-file-invoice"></i><label routerLink="/billingdetails">Billing</label>
+            </a>
+            <hr style="color: black;">
+            <!-------- Billing Menu End------------->
+
+            <!-------- Application Menu Start------->
+            <div class="dropdown1">
+              <a class="nav-link collapsed" data-bs-target="#application-nav" data-bs-toggle="collapse" href="#">
+                <i class="las la-mobile-alt cogs"> <a class="dropbtn" style="margin-left: 1%;">Application</a></i>
+              </a>
+              <ul id="application-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                <li> <a routerLink="/company"> <i class="las la-business-time"></i> Company </a>
+                </li>
+                <hr>
+                <li> <a href="#"> <i class="las la-cog"></i> Setting </a></li>
+                <hr>
+                <li> <a href="/holiday"> <i class="las la-suitcase-rolling"></i> Holiday </a> </li>
+              </ul>
+            </div>
+            <hr style="color: black;">
+            <!-------- Application Menu End------->
+
+            <!-------- Products Menu Start------->
+            <div class="dropdown">
+              <a class="nav-link collapsed" data-bs-target="#Products-nav" data-bs-toggle="collapse" href="#">
+                <i class="lab la-product-hunt cogs"><a class="dropbtn">Products</a></i>
+              </a>
+              <ul id="Products-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li><a href="/group"> <i class="las la-users"></i> Group </a></li>
+                <hr>
+                <li><a [routerLink]="['/brand']" [queryParams]="{data:'B'}"><i class="las la-trademark"></i> Brand </a>
+                </li>
+                <hr>
+                <li><a [routerLink]="['/unit']" [queryParams]="{data:'U'}"><i class="las la-balance-scale"></i> Unit
+                  </a></li>
+                <hr>
+                <li><a href="/hsn"><i class="las la-percentage"></i> HSN Info </a></li>
+              </ul>
+            </div>
+            <hr style="color: black;">
+            <!-------- Products Menu End------->
+
+            <!-------- Staff Menu Start------->
+            <div class="dropdown">
+              <a class="nav-link collapsed" data-bs-target="#staff-nav" data-bs-toggle="collapse" href="#">
+                <i class="las la-user-cog cogs"><a class="dropbtn">Staff</a></i>
+              </a>
+              <ul id="staff-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                <li> <a href="/staff"> <i class="las la-address-card"></i> Staff </a> </li>
+                <hr>
+                <li> <a [routerLink]="['/department']" [queryParams]="{data:'DT'}"><i class="las la-store"></i>
+                    Department</a></li>
+                <hr>
+                <li> <a [routerLink]="['/designation']" [queryParams]="{data:'D'}"><i class="las la-map-pin"></i>
+                    Designation</a></li>
+              </ul>
+            </div>
+            <hr style="color: black;">
+            <!-------- Staff Menu End------->
+
+            <!-------- Client Menu Start------>
+            <div class="dropdown">
+              <a class="nav-link collapsed" data-bs-target="#client-nav" data-bs-toggle="collapse" href="#">
+                <i class="las la-users cogs"><a class="dropbtn">Client</a></i>
+              </a>
+              <ul id="client-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li> <a href="/client"> <i class="las la-file-alt"></i>Client Info </a> </li>
+                <hr>
+                <li> <a href="/supplier"> <i class="las la-percentage"></i> Supplier</a> </li>
+              </ul>
+            </div>
+            <hr style="color: black;">
+            <!-------- Client Menu End------->
+          </ul>
+        </aside>
+      </mat-nav-list>
+    </mat-sidenav>
+    <!------------------Sidenav End------------------------------------>
+
+    <!------------------Navbar start------------------------------------>
+    <mat-sidenav-content>
+      <mat-toolbar style="background-color:#A11F21;color:white">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <i class="las la-bars menu"></i>
+        </button>
+        <h4 id="head">Nellai System </h4>
+        <div class="spacer" style="flex:1 1 auto"></div>
+        <i class="las la-user user" routerLink="user"></i>
+        <i class="las la-home home" routerLink="home"></i>
+        <i class="las la-print print" routerLink="/billingdetails"></i>
+        <i class="las la-power-off power" (click)="RemoveToken_user()"></i>
+      </mat-toolbar>
+      <app-home></app-home>
+    </mat-sidenav-content>
+    <!----------------Navbar End---------------------------------------------->
+  </mat-sidenav-container>
+
+</div>
+<!------------------Editable User Mode------------------------------------>
+<ng-template #usermode>
+  <mat-sidenav-container fullscreen>
+    <mat-sidenav mode="side" #sidenav closed position="start" style="background-color: white;">
+      <mat-nav-list>
+        <a mat-list-item class="profile">
+          <i class="las la-user-tie"></i> <label>Profile</label></a>
+        <hr style="color: black;">
+        <a mat-list-item class="billing">
+          <i class="las la-file-invoice"></i><label routerLink="/billingdetails">Billing</label>
+        </a>
+        <hr style="color: black;">
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <!----Navbar start-->
+    <mat-sidenav-content>
+      <mat-toolbar style="background-color:#A11F21;color:white">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <i class="las la-bars menu"></i>
+        </button>
+        <h4 id="head">Nellai System </h4>
+        <div class="spacer" style="flex:1 1 auto"></div>
+        <i class="las la-user user" routerLink="user"></i>
+        <i class="las la-home home" routerLink="home"></i>
+        <i class="las la-print print" routerLink="/billingdetails"></i>
+        <i class="las la-power-off power" (click)="RemoveToken_user()"></i>
+      </mat-toolbar>
+      <!----Navbar End-->
+      <app-home></app-home>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</ng-template>

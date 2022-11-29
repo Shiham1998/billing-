@@ -1,0 +1,277 @@
+/* Model popup css */
+
+.modal-confirm {
+  color: #636363;
+  width: 400px;
+}
+
+.modal-confirm .modal-content {
+  padding: 0px;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  font-size: 14px;
+}
+
+.modal-confirm .modal-header {
+  border-bottom: none;
+  position: relative;
+}
+
+.modal-confirm h4 {
+  text-align: center;
+  font-size: 26px;
+  margin: 30px 0 -10px;
+}
+
+.modal-confirm .close {
+  position: absolute;
+  top: 15px;
+  right: 15px
+}
+
+.modal-confirm .modal-body {
+  padding: 0px;
+  color: #999;
+}
+
+.modal-confirm .modal-footer {
+  border: none;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 13px;
+  padding: 10px 15px 25px;
+}
+
+.modal-confirm .modal-footer a {
+  color: #999;
+}
+
+.modal-confirm .icon-box {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  border-radius: 50%;
+  z-index: 9;
+  text-align: center;
+  border: 3px solid #f15e5e;
+}
+
+.modal-confirm .icon-box i {
+  color: #f15e5e;
+  font-size: 46px;
+  display: inline-block;
+  margin-top: 13px;
+}
+
+.modal-confirm .btn,
+.modal-confirm .btn:active {
+  color: #fff;
+  border-radius: 4px;
+  background: #60c7c1;
+  text-decoration: none;
+  transition: all 0.4s;
+  line-height: normal;
+  min-width: 120px;
+  border: none;
+  min-height: 40px;
+  border-radius: 3px;
+  margin: 0 5px;
+}
+
+.btn:hover {
+  -ms-transform: scale(1.1);
+  -webkit-transform: scale(1.2);
+  transform: scale(1.1);
+}
+
+.modal-confirm .btn-secondary {
+  background: #c1c1c1;
+}
+
+.modal-confirm .btn-secondary:hover,
+.modal-confirm .btn-secondary:focus {
+  background: #a8a8a8;
+}
+
+.modal-confirm .btn-danger {
+  background: #f15e5e;
+}
+
+.modal-confirm .btn-danger:hover,
+.modal-confirm .btn-danger:focus {
+  background: #ee3535;
+}
+
+.modal-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+p {
+  margin-top: 0px;
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+  font-family: 'Robot';
+  text-align: left;
+}
+
+/* plus icon css */
+.float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: rgb(124, 1, 1);
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  margin-left: 100px;
+  margin-top: 150px;
+}
+
+.my-float {
+  margin-top: 22px;
+}
+
+/* navigation bar style */
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  background: #A11F21;
+  color: #f2f2f2;
+}
+
+#leftarrow {
+  cursor: pointer;
+  font-size: 30px;
+  margin-right: 4px;
+  font-weight: bold;
+  float: left;
+}
+
+#navhead {
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  margin-left: 3%;
+}
+
+
+/* Card css */
+.card-title {
+  color: white;
+}
+
+.card:hover {
+  box-shadow: 0 25px 30px rgba(163, 1, 1, 0.4);
+}
+
+#card {
+  background-color: whitesmoke;
+}
+
+/* card header css */
+#topBand {
+  background-color: #A11F21;
+  padding: 0px;
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+#icon {
+  float: right;
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0px 2px 0px 2px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+#icon:hover {
+  transform: scale(1.5);
+}
+
+/* image css  */
+
+img {
+  border: 1px solid #ddd;
+  padding: 5px;
+  border-radius: 20px;
+  width: 150px;
+  height: 150px;
+}
+
+img:hover {
+  box-shadow: 0 25px 30px rgba(163, 1, 1, 0.4);
+}
+
+
+@media only screen and (max-width: 1000px) {
+  p {
+    font-size: 15px;
+  }
+
+  img {
+    border: 0px solid #ddd;
+    padding: 15px;
+    border-radius: 20px;
+    width: 120px;
+    height: 120px;
+  }
+  #topBand{
+    font-size: 17px;
+  }
+  #icon{
+    font-size: 18px;
+  }
+}
+
+@media(max-width: 900px) {
+  .custum {
+    height: 10px;
+    display: none;
+ }
+  .icons{
+    float: right;
+    width: fit-content;
+    margin-left: auto;
+ }
+  .pname{
+    float: left;
+    width: fit-content;
+  }
+  .brand{
+    display: block;
+    font-size: medium;
+    font-weight: bold;
+    font-family: robot;
+    text-transform: capitalize;
+  }
+  #topBand{
+    font-size: 17px;
+  }
+  #icon{
+    font-size: 18px;
+  }
+
+}
+
+@media(min-width:901px) {
+.brand{
+  display: none;
+}
+
+}
+
+

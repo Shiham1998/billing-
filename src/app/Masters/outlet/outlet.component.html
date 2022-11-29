@@ -1,0 +1,75 @@
+<!-------------------------Navbar start------------------------------------->
+<nav class="navbar" style="display: flex;">
+  <i class="las la-arrow-circle-left arrow" routerLink="/layout"> <a class="navbar-brand brand" >Outlet</a></i>
+     <form class="form-inline inline" [formGroup]="searchitem">   
+         <i class="las la-search" (click) ="searchName()"  style="font-size: 20px;"></i> 
+         <input type="text" class="searchbar" (keyup) ="list()" placeholder="Search.." formControlName="search_name" name="search">
+     </form>
+ </nav>
+ <!--------------------------Navbar End------------------------------------->
+
+ <div class="container">
+   <!------------------------Card start------------------------------------->
+   <div *ngFor="let list of outletdata">
+     <div class="row justify-content-center" style="margin-top:10px;">
+       <div class="col-sm-6">  
+         <div class="card shadow bg-white rounded">
+            <div class="card-header" id="header">
+             <h5 class="card-title"><span class="title">{{list.outlet_city}} </span><i class="las la-trash-alt trash" href="#ConfirmModal"
+                 data-toggle="modal" (click)="Passidfromdeletemodal(list.id)"></i> <i class="las la-pen pen"
+                 routerLink="/addeditoutlet/{{list.id}}"></i> </h5>
+                </div>
+                <div class="card-body">
+             <p class="card-text">City : <label class="city">{{list.outlet_city}}</label></p>
+             <p class="card-text">GSTN : <label class="gst">{{list.outlet_gstin}}</label></p>
+             <p class="card-text">Telephone : <label class="mobile">{{list.outlet_telephone}}</label></p>
+             <p class="card-text">Address : <label class="address">{{list. outlet_address}}</label></p>
+            </div>
+       </div>
+     </div>
+   </div>
+  <!------------------------Card End------------------------------------->
+
+   <!-- -------------------delete popup Start ---------------------------->
+   <div id="ConfirmModal" class="modal" *ngFor="let list of outletdata">
+    <div class="modal-dialog modal-dialog-centered" >
+      <div class="modal-content">
+        <div class="modal-header flex-column" data-target=".bd-example-modal-sm">
+          <h3 class="modal-title" style="display: flex;"><i class="las la-exclamation-triangle" id="dangericon"></i> Are you sure? </h3>
+        </div>
+        <div class="modal-body">
+          <p>Do you really want to delete <strong id="productname">{{getOutletid}}</strong> record? </p>
+          <p>This process cannot be undone.</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><b>Cancel</b></button>
+          <button type="btn" class="btn btn-outline-danger"
+            data-toggle="modal" data-target="#SuccessModalDelete" data-dismiss="modal"
+            style="background-color: #A11F21;color: aliceblue;"  (click)="deleteoutletlists(getOutletid)"><b>Delete</b></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div #SuccessModalDelete id="SuccessModalDelete" class="modal fade">
+    <div class="modal-dialog modal-dialog-centered" >
+      <div class="modal-content">
+        <div class="modal-body" >
+          <div style="text-align:center;"><i class="fa fa-info-circle fa-5x center" id="productname" aria-hidden="true"></i></div>
+          <p id="smsg" style="text-align:center;">ClientInfoirmation Details Deleted successfully</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><b>Close</b></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ <!----------------------------- delete popup End ------------------------->
+ 
+   <!----------------------Plus icon start---------------------------------->
+   <a href="#" class="float" routerLink="/addeditoutlet">
+     <i class="la la-plus plus"></i>
+   </a>
+   <!-----------------------Plus icon End-------------------------------------->
+  </div>
+ 

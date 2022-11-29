@@ -1,0 +1,108 @@
+.navbar {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	background: #A11F21;
+	color: #F2F2F2;
+}
+
+.content {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+mat-error {
+	font-size: 13px;
+}
+
+mat-form-field {
+	margin-left: 10px;
+	margin-top: 20px;
+	width: 250px;
+}
+
+mat-checkbox {
+	margin-left: 70px;
+	margin-top: 20px;
+	width: 250px;
+}
+
+mat-label {
+	font-weight: bold;
+	font-size: 25px;
+	font-family: Robot;
+}
+.mat-stepper-vertical {
+	margin-top: 8px;
+}
+
+.mat-form-field {
+	margin-top: 16px;
+}
+
+#state {
+	font-weight: bold;
+	font-size: 20px;
+	font-family: Robot;
+}
+
+#country{
+	font-weight: bold;
+	font-size:20px;
+	font-family: Robot;
+}
+
+input[type=search] {
+	background: white;
+	padding: 9px 10px 9px 32px;
+	width: 55px;
+}
+
+input[type=search]:focus {
+	width: 100px;
+	background-color: #ccc;
+}
+
+input {
+	font-family: Robot;
+	font-weight: bold;
+}
+
+button {
+	color: #A11F21;
+	font-weight: bold;
+	font-size: 20px;
+	margin-top: 20px;
+}
+
+button:hover {
+	background-color: rgb(177, 228, 248);
+	color: black;
+}
+
+.arrow {
+	font-size: 30px;
+	margin-right: 24px;
+	font-weight: bold;
+	float: left;
+	cursor: pointer;
+}
+
+.brand {
+	color: white;
+	font-weight: bold;
+	margin-bottom: 19%;
+	font-size: 28px;
+	margin-left: 3%;
+}
+
+.preview {
+	padding: 12px;
+	border-radius: 20px;
+	width: 200px;
+	height: 200px;
+}
+::ng-deep .mat-step-header .mat-step-icon-selected {
+	background-color:  #A11F21; 
+  }
+ 

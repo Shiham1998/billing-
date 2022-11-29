@@ -1,0 +1,72 @@
+/* related to matstepper font size and gap in bottom */
+.cll {
+	font-weight: bold;
+	font-size:20px;
+}
+/* for mat styles*/
+mat-form-field {
+	font-weight: bold;
+	font-size: 25px;
+	margin-left: 10px;
+	margin-top: 20px;
+	width: 250px;
+}
+mat-checkbox {
+	margin-left: 70px;
+	margin-top: 20px;
+	width: 250px;
+}
+mat-label{
+    font-weight: bold;
+	font-size: 25px;
+	font-family: Robot;
+}
+.mat-stepper-vertical {
+	margin-top: 8px;
+}
+mat-error{
+	font-size: 13px;
+}
+.mat-form-field {
+	margin-top: 16px;
+}
+/*For button styles*/
+.btn {
+	border-radius: 14px;
+	width: 250px;
+	height: 29px;
+	padding-bottom: 29px;
+}
+button{
+	color: #A11F21;
+	font-weight: bold;
+	font-size: 20px;
+	margin-top: 20px;
+}
+button:hover{
+	background-color: rgb(177, 228, 248);
+	color: black;
+}
+#button {
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+}
+/* Navigation styles*/
+.navbar {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.5rem 1rem;
+	background: #A11F21;
+	color: #f2f2f2;
+}
+input{
+	font-family: Robot;
+	font-weight: bold;
+}
+b{
+	font-size: 12pt;
+}

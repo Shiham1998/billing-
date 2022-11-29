@@ -1,0 +1,81 @@
+
+.dvcontainer {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+i {
+  cursor: pointer;
+}
+
+mat-form-field {
+  margin-left: 10px;
+  margin-top: 20px;
+  width: 250px;
+}
+mat-label {
+  font-weight: bold;
+  font-size: 30px;
+  font-family: Robot;
+}
+
+#img {
+  font-size: 25px;
+  font-family: Robot;
+  margin-left: 20px;
+}
+
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background: #A11F21;
+  color: #f2f2f2;
+}
+
+input {
+  font-family: Robot;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 25px;
+}
+
+matPrefix{
+  font-size: 25px;
+}
+
+button {
+  color: #A11F21;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: rgb(177, 228, 248);
+  color: black;
+}
+
+mat-error {
+  font-size: 13px;
+}
+
+.example-margin {
+  margin: 0 12px;
+  margin-top: 20px;
+}
+
+.mat-form-field-type-mat-native-select .mat-input-element {
+  padding-left: 25px;
+  margin-top: 10px;
+  font-weight: bold;
+  font-family: Robot;
+  font-size: 25px;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color:  #A11F21; 
+}

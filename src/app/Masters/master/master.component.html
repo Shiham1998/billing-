@@ -1,0 +1,135 @@
+<div>
+    <div>
+        <nav class="navbar" style="display: flex;">
+            <i class="las la-arrow-circle-left arrow" routerLink="/layout" id="hover"
+            style="font-size: 30px;margin-right: 24px;font-weight: bold;float: left;"> 
+            <a class="navbar-brand"style="color: white;font-weight:bold;margin-bottom: 19%;font-size: 28px;margin-left: 3%;">{{_assignText}}</a></i>
+        </nav> 
+        <div *ngFor="let master of MasterListdata let i=index">
+            <div class="row justify-content-center" style="margin-top:10px;">
+              <div class="col-sm-8 col-md-6">
+                <div class="card">
+                  <div  class="card-header" id="topname"><span id="master" style="font-weight: bold;font-size: 20px;">{{master.name}}</span>
+                  <h5 class="card-title">
+                      <i class="las la-trash-alt" 
+                        data-toggle="modal" id="delete" href="#ConfirmModal" (click)="getDeleteid(master.id)">
+                      </i> 
+                      <i *ngIf="TemplateCode==='B'" class="las la-pen" id="edit" data-toggle="modal" href="#Mastermodal" routerLink="/addbrand/{{master.id}}" [queryParams]="{data:'B'}"  ></i>
+                      <i *ngIf="TemplateCode==='U'" class="las la-pen" id="edit" data-toggle="modal" href="#Mastermodal" routerLink="/addunit/{{master.id}}" [queryParams]="{data:'U'}"  ></i>
+                      <i *ngIf="TemplateCode==='D'" class="las la-pen" id="edit"  data-toggle="modal" href="#Mastermodal" routerLink="/adddesignation/{{master.id}}" [queryParams]="{data:'D'}" ></i>
+                      <i *ngIf="TemplateCode==='DT'" class="las la-pen" id="edit"  data-toggle="modal" href="#Mastermodal" routerLink="/adddepartment/{{master.id}}" [queryParams]="{data:'DT'}" ></i> 
+                    </h5>
+                    </div>
+                       <div class="row g-0" style="display:flex;white-space: nowrap;">
+                       <div class="col-sm-8 col-md-6" id="contentdiv">
+                        <div class="justify-content-between">
+                        <div class="col-md-6">
+                        <p>S.No : <label id="masterid">{{i+1}}</label></p>
+                       </div>
+                       </div>
+                       <div class="justify-content-between">
+                       <div class="col-md-6">
+                       <p>{{_assignText}} Name : <label id="mastername">{{master.name}}</label></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+    <a class="float" id="hover">
+        <i *ngIf="TemplateCode==='B'"  class="la la-plus my-float"  data-toggle="modal" id="edit1" href="#Mastermodal" routerLink="/addbrand" [queryParams]="{data:'B'}" ></i>
+        <i *ngIf="TemplateCode==='U'"  class="la la-plus my-float"  data-toggle="modal" id="edit1" href="#Mastermodal" routerLink="/addunit" [queryParams]="{data:'U'}" ></i>
+        <i *ngIf="TemplateCode==='D'"  class="la la-plus my-float"  data-toggle="modal" id="edit1" href="#Mastermodal" routerLink="/adddesignation" [queryParams]="{data:'D'}" ></i>
+        <i *ngIf="TemplateCode==='DT'"  class="la la-plus my-float"  data-toggle="modal" id="edit1" href="#Mastermodal" routerLink="/adddepartment" [queryParams]="{data:'DT'}" ></i>
+    </a>
+      <div class="modal fade modal fade bd-example-modal-sm" data-keyboard="false" data-backdrop="static" id="Mastermodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content w-75">
+                <div class="modal-body-addedit">
+                <div *ngIf="addMode; else editable">
+                  <div class="modal-header" style="background-color:brown">
+                    <h1  class="modal-title fs-5 text-white" id="exampleModalLabel">Add {{_assignText}}</h1>
+                    <div class="gap-2 d-md-flex justify-content-md-start">
+                    <button type="button" class="btn bg-white"(click)="savemasters()" data-dismiss="modal" >
+                      <i class="fa fa-check" data-toggle="modal" href="#Successmodal" style="color:forestgreen ;"></i></button>
+                    <button  type="button" class="btn bg-white" data-toggle="modal" href="#Closemodal"  data-dismiss="modal"  style="color: maroon;font-weight: bold;"(click)="NavigateToList()">X</button>
+                    </div>
+                </div>
+                  <form  [formGroup]="fg_Masters" class="was-validated">
+                          <mat-form-field class="lengthinput">
+                              <mat-label>{{_assignText}} name</mat-label>
+                              <input matInput formControlName="name"  required/>
+                          </mat-form-field><br/>
+                  </form>
+              </div>
+                </div>
+                <ng-template  #editable>
+                  <div>
+                    <div class="modal-header" style="background-color:brown">
+                      <h1  class="modal-title fs-5 text-white" id="exampleModalLabel">Edit {{_assignText}}</h1>
+                      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                      <button type="button" class="btn bg-white" (click)="UpdateMaster()" data-dismiss="modal" >
+                        <i class="fa fa-check" data-toggle="modal" href="#Successmodal" style="color:forestgreen  ;" ></i></button>
+                      <button  type="button"  data-toggle="modal" class="btn bg-white" data-dismiss="modal" style="color: maroon;font-weight: bold;"(click)="NavigateToList()">X</button>
+                      </div>
+                    </div>
+                      <form  [formGroup]="fg_Masters" class="was-validated">
+                              <mat-form-field  class="lengthinput">
+                                  <mat-label>{{_assignText}} name</mat-label>
+                                  <input matInput formControlName="name"  required/>
+                              </mat-form-field><br/>
+                      </form>
+                  </div>
+              </ng-template>
+            </div>
+         </div>
+     </div>
+</div>
+<div id="Successmodal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content w-75">
+      <div class="modal-body">
+       <p><b>Data Saved Successfully..!!</b></p>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-success" data-dismiss="modal" (click)=" NavigateToList()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="ConfirmModal" class="modal"*ngFor="let master of MasterListdata">
+  <div class="modal-dialog modal-dialog-centered" >
+    <div class="modal-content">
+      <div class="modal-header flex-column" data-target=".bd-example-modal-sm">
+        <h3 class="modal-title" style="display: flex;"><i class="las la-exclamation-triangle" id="dangericon"></i> Are you sure? </h3>
+      </div>
+      <div class="modal-body">
+        <p>Do you really want to delete <strong id="productname">{{master.name}}</strong> record? </p>
+        <p>This process cannot be undone.</p>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"><b>Cancel</b></button>
+        <button type="btn" class="btn btn-outline-danger"
+          data-toggle="modal" data-target="#SuccessModalDelete" data-dismiss="modal"
+          style="background-color:rgb(219, 100, 100);color: white;" (click)="DeleteMaster(_getMasterId)"><b>Delete</b></button>
+      </div>
+    </div>
+  </div>
+ </div>
+ <div #SuccessModalDelete id="SuccessModalDelete" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <i class="fa fa-info-circle fa-4x" aria-hidden="true"></i>
+        <p style="margin-left:80px;">{{_assignText}} Details Deleted successfully</p>
+      </div>
+       <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+       </div>
+     </div>
+    </div>
+  </div>
+</div>

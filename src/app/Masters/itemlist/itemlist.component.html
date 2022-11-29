@@ -1,0 +1,105 @@
+<nav class="navbar" style="display: flex;">
+  <i class="las la-arrow-circle-left arrow" id="leftarrow" routerLink="/layout"> <a class="navbar-brand"
+      id="navhead">Products</a></i>
+  <form class="form-inline" [formGroup]="searchitem" style="margin-right: 1%;">
+    <input id="search" type="text" formControlName="search_name" placeholder="Search..." (keyup)="onSearch($event)"
+      style="border-radius: 15px;" />
+  </form>
+</nav>
+<div class="container">
+  <!---**************************First Card start****************************-->
+  <div *ngFor="let item of itemlistdata;">
+    <div class="row justify-content-center mt-3" id="dvitemcontainer">
+      <div class="col-sm-12 col-xs-8 col-md-12">
+        <div class="card">
+          <div class="card-header p-2 pt-0 pb-0" id="topBand">
+            <div class="row" id="font">
+              <div class="col-md-4 text-capitalize pname"> PC - #{{item.item_code}} {{item.item_name }} </div>
+              <div class="col-md-4 text-capitalize text-center custum">{{item.brand}}</div>
+              <div class="col-md-4 text-right icons">
+                <h4 class="card-title"> <i class="las la-eye" id="icon" routerLink="/viewitem/{{item.id}}"></i><i
+                    class="las la-trash-alt" href="#ConfirmModal" data-toggle="modal" id="icon" (click)="Passidfromdeletemodal(
+                    item.id)"></i> <i class="las la-pen" id="icon" routerLink="/edititem/{{item.id}}"></i> </h4>
+              </div>
+            </div>
+          </div>
+          <div class="flex row g-0 text-center text-nowrap p-3">
+            <div class="col-sm-4">
+              <img class="preview" alt={{item.item_name}} src={{item.productimage}} />
+              <h4 class="col brand">{{item.brand}}</h4>
+            </div>
+            <div class="col-sm-8 mt-3">
+              <div class="d-flex justify-content-between">
+                <div class="col-md-6">
+                  <p>M.R.P : <label>{{item.mrp}}</label></p>
+                </div>
+                <div class="col-md-6">
+                  <p>M.S.P : <label>{{item.min_sale_price}}</label></p>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <div class="col-md-6">
+                  <p>GST : <label>{{item.GST}}%</label></p>
+                </div>
+                <div class="col-md-6">
+                  <p> Discount : <label>{{item.customer_discount}}</label> </p>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <div class="col-md-6">
+                  <p> Current Stock : <label>{{item.current_stock}}</label></p>
+                </div>
+                <div class="col-md-6">
+                  <p>Group : <label>{{item.group}}</label> </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ******************* delete popup Model ********************-->
+  <div id="ConfirmModal" class="modal" *ngFor="let item of itemlistdata">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header flex-column" data-target=".bd-example-modal-sm">
+          <h3 class="modal-title" style="display: flex;"><i class="las la-exclamation-triangle" id="dangericon"></i> Are
+            you sure? </h3>
+        </div>
+        <div class="modal-body">
+          <p id="pdelt">Do you really want to delete <strong id="productname">{{item.item_name}}</strong> record? </p>
+          <p id="pdelt">This process cannot be undone.</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><b>Cancel</b></button>
+          <button type="btn" class="btn btn-outline-danger" data-toggle="modal" data-target="#SuccessModalDelete"
+            data-dismiss="modal" style="background-color: #A11F21;color: aliceblue;"
+            (click)="deleteitemlists(deltitemId_)"><b>Delete</b></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div #SuccessModalDelete id="SuccessModalDelete" class="modal fade">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div style="text-align:center;"><i class="fa fa-info-circle fa-5x center" id="productname"
+              aria-hidden="true"></i></div>
+          <p id="pdelt" style="text-align:center;">Product Details Deleted successfully</p>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><b>Close</b></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!---Plus icon start-->
+  <a class="float" routerLink="/additem">
+    <i class="la la-plus my-float"></i>
+  </a>
+  <!---Plus icon End-->
+</div>

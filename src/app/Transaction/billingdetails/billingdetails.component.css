@@ -1,0 +1,98 @@
+.card-text {
+	font-weight: bold;
+}
+
+.navbar {
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	background: #A11F21;
+	color: #F2F2F2;
+	cursor: pointer;
+}
+
+.inr {
+	font-weight: bold;
+	margin-top: 4%;
+	text-align: center;
+	cursor: pointer;
+	font-size: 20px;
+	margin-right: 22%;
+}
+
+.cart {
+	font-size: 30px;
+	margin-right: 29%;
+	float: left;
+	flex-direction: column;
+}
+
+.right {
+	margin-left: 2%;
+	font-weight: bold;
+	cursor: pointer;
+	font-size: 20px;
+	margin-top: 1%;
+
+}
+
+/* .row>* {
+    flex-shrink: 0;
+    width: 90%;
+	display: flex;
+	flex-direction: column;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    margin-top: var(--bs-gutter-y);
+} */
+.row {
+	margin-top: 10px;
+	align-items: center;
+	margin-left: 5%;
+	flex-direction: row;
+	display: flex;
+	display: inline-flex;
+}
+
+#head1 {
+	font-family: Robot;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.search {
+	margin-right: 10px;
+
+	font-size: 30px;
+}
+
+.code {
+	margin-right: 10px;
+
+	font-size: 30px;
+}
+
+.grid {
+	margin-right: 10px;
+
+	font-size: 30px;
+}
+
+.editable {
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.plus {
+	font-size: 30px;
+	font-weight: bold;
+	margin-right: 1%;
+	color: brown;
+}
+
+.minus {
+	font-size: 30px;
+	margin-left: 1%;
+	color: brown;
+}
